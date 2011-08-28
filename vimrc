@@ -106,7 +106,7 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
-" NERDCommenter
+" Make NERDCommenter match TextMate's commenting shortcut
 map <Leader>/ <plug>NERDCommenterToggle
 
 " screw help
@@ -154,26 +154,6 @@ imap <C-J>      <C-O>gqap
 map <Leader>tp :tabp<CR>
 map <Leader>tn :tabnext<CR>
 
-syntax enable "Enable syntax hl
-"set background=dark
-set t_Co=256
-if has("gui_running") || $TERM=="xterm-256color"
-    set t_Co=256
-    set guioptions-=T
-    colorscheme sunburst
-    set nonu
-    "highlight OverLength ctermbg=209 ctermfg=0 guibg=#592929
-    "match OverLength /\%81v.\+/
-else "Had to do this in order to continue to allow syntax highlighting on non-
-     "xterm-256color and non-GUI vims.  On OS X, the entire file flashes
-     "if this is not set.
-    set t_Co=256
-    colorscheme sunburst
-    set nonu
-    "highlight OverLength ctermbg=red ctermfg=black
-    "match OverLength /\%81v.\+/
-endif
-
 " % to bounce from do to end etc.
 runtime! macros/matchit.vim
 
@@ -199,6 +179,25 @@ if has("autocmd")
 	" language-specific general settings
 	autocmd FileType php noremap <C-M> :w!<CR>:!php %<CR>		" run file
 	autocmd FileType php noremap <C-L> :w!<CR>:!php -l %<CR>	" check syntax
+endif
 
+syntax enable "Enable syntax hl
+"set background=dark
+set t_Co=256
+if has("gui_running") || $TERM=="xterm-256color"
+    set t_Co=256
+    set guioptions-=T
+    colorscheme sunburst
+    set nonu
+    "highlight OverLength ctermbg=209 ctermfg=0 guibg=#592929
+    "match OverLength /\%81v.\+/
+else "Had to do this in order to continue to allow syntax highlighting on non-
+     "xterm-256color and non-GUI vims.  On OS X, the entire file flashes
+     "if this is not set.
+    set t_Co=256
+    colorscheme sunburst
+    set nonu
+    "highlight OverLength ctermbg=red ctermfg=black
+    "match OverLength /\%81v.\+/
 endif
 
