@@ -103,3 +103,6 @@
 [submodule "bundle/slim"]
 	path = bundle/slim
 	url = git://github.com/bbommarito/vim-slim.git
+[submodule "bundle/SunburstVIM"]
+	path = bundle/SunburstVIM
+	url = https://github.com/tangphillip/SunburstVIM.git
