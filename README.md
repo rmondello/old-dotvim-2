@@ -1,4 +1,4 @@
-Fork of [Cody Krieger's dotvim repo](/codykrieger/dotvim).
+## Fork of [Cody Krieger's dotvim repo](/codykrieger/dotvim).
 
 Bootstraping it
 ===============
