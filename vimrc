@@ -201,3 +201,5 @@ else "Had to do this in order to continue to allow syntax highlighting on non-
     "match OverLength /\%81v.\+/
 endif
 
+" line numbers
+set number

@@ -224,7 +224,7 @@ endif
 set fuopt=maxvert,maxhorz
 
 " Best font of all time.
-set guifont=Monaco:h15
+set guifont=Monaco:h14
 
 " Stop the damn blinking cursor.
 set gcr=n:blinkon0
