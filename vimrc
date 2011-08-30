@@ -19,26 +19,32 @@ let mapleader=","
 " screw vi
 set nocompatible
 
+set lazyredraw
 set number
 set ruler
 syntax on
+colorscheme sunburst
 
 " Set encoding
 set encoding=utf-8
 
 " Whitespace stuff
+set autoindent
+set smartindent
 set nowrap
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+set smarttab
 set list listchars=tab:\ \ ,trail:·
 
 " Searching
 set hlsearch
-set incsearch
+" set incsearch " Jumps to the first result ASAP.  Phil doesn't like this.
 set ignorecase
 set smartcase
+nnoremap <silent> _ :nohl<CR>
 
 " Be able to arrow key and backspace across newlines
 set backspace=eol,start,indent
@@ -47,6 +53,9 @@ set whichwrap=bs<>[]
 " Tab completion
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
+
+" Start scrolling the page when we're 7 lines from the edge
+set so=7
 
 " Status bar
 set laststatus=2
@@ -67,7 +76,18 @@ endif
 function s:setupWrapping()
   set wrap
   set wrapmargin=2
-  set textwidth=72
+  set textwidth=78
+
+  if &textwidth != 0
+    set linebreak
+    if exists("&colorcolumn")
+      set colorcolumn=+1
+    else
+      if version >= 702 && has("autocmd")
+        au BufWinEnter * let w:m1=matchadd('Error', '\%>'.&tw.'v.\+', -1)
+      endif
+    endif
+  endif
 endfunction
 
 " make uses real tabs
@@ -83,9 +103,6 @@ au BufRead,BufNewFile *.txt call s:setupWrapping()
 
 " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
 
 " load the plugin and indent settings for the detected filetype
 filetype plugin indent on
@@ -134,9 +151,6 @@ let g:gist_open_browser_after_post = 1
 set modeline
 set modelines=10
 
-" Default color scheme
-color desert
-
 " Directories for swp files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
@@ -184,24 +198,3 @@ if has("autocmd")
 	autocmd FileType php noremap <C-M> :w!<CR>:!php %<CR>		" run file
 	autocmd FileType php noremap <C-L> :w!<CR>:!php -l %<CR>	" check syntax
 endif
-
-syntax enable "Enable syntax hl
-"set background=dark
-set t_Co=256
-if has("gui_running") || $TERM=="xterm-256color"
-    set t_Co=256
-    set guioptions-=T
-    colorscheme sunburst
-    set nonu
-    "highlight OverLength ctermbg=209 ctermfg=0 guibg=#592929
-    "match OverLength /\%81v.\+/
-else "Had to do this in order to continue to allow syntax highlighting on non-
-     "xterm-256color and non-GUI vims.  On OS X, the entire file flashes
-     "if this is not set.
-    set t_Co=256
-    colorscheme sunburst
-    set nonu
-    "highlight OverLength ctermbg=red ctermfg=black
-    "match OverLength /\%81v.\+/
-endif
-
