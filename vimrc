@@ -40,6 +40,10 @@ set incsearch
 set ignorecase
 set smartcase
 
+" Be able to arrow key and backspace across newlines
+set backspace=eol,start,indent
+set whichwrap=bs<>[]
+
 " Tab completion
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
