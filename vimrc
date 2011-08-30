@@ -19,32 +19,26 @@ let mapleader=","
 " screw vi
 set nocompatible
 
-set lazyredraw
 set number
 set ruler
 syntax on
-colorscheme sunburst
 
 " Set encoding
 set encoding=utf-8
 
 " Whitespace stuff
-set autoindent
-set smartindent
 set nowrap
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-set smarttab
 set list listchars=tab:\ \ ,trail:·
 
 " Searching
 set hlsearch
-" set incsearch " Jumps to the first result ASAP.  Phil doesn't like this.
+set incsearch
 set ignorecase
 set smartcase
-nnoremap <silent> _ :nohl<CR>
 
 " Be able to arrow key and backspace across newlines
 set backspace=eol,start,indent
@@ -53,9 +47,6 @@ set whichwrap=bs<>[]
 " Tab completion
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
-
-" Start scrolling the page when we're 7 lines from the edge
-set so=7
 
 " Status bar
 set laststatus=2
@@ -76,18 +67,7 @@ endif
 function s:setupWrapping()
   set wrap
   set wrapmargin=2
-  set textwidth=78
-
-  if &textwidth != 0
-    set linebreak
-    if exists("&colorcolumn")
-      set colorcolumn=+1
-    else
-      if version >= 702 && has("autocmd")
-        au BufWinEnter * let w:m1=matchadd('Error', '\%>'.&tw.'v.\+', -1)
-      endif
-    endif
-  endif
+  set textwidth=72
 endfunction
 
 " make uses real tabs
@@ -103,6 +83,9 @@ au BufRead,BufNewFile *.txt call s:setupWrapping()
 
 " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
 
 " load the plugin and indent settings for the detected filetype
 filetype plugin indent on
@@ -151,6 +134,9 @@ let g:gist_open_browser_after_post = 1
 set modeline
 set modelines=10
 
+" Default color scheme
+color desert
+
 " Directories for swp files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
@@ -171,10 +157,6 @@ imap <C-J>      <C-O>gqap
 " Tabs
 map <Leader>tp :tabp<CR>
 map <Leader>tn :tabnext<CR>
-
-" Typos!
-command W w
-command Q q
 
 " % to bounce from do to end etc.
 runtime! macros/matchit.vim
@@ -222,3 +204,6 @@ else "Had to do this in order to continue to allow syntax highlighting on non-
     "highlight OverLength ctermbg=red ctermfg=black
     "match OverLength /\%81v.\+/
 endif
+
+" line numbers
+set number
