@@ -172,6 +172,10 @@ imap <C-J>      <C-O>gqap
 map <Leader>tp :tabp<CR>
 map <Leader>tn :tabnext<CR>
 
+" Typos!
+command W w
+command Q q
+
 " % to bounce from do to end etc.
 runtime! macros/matchit.vim
 
