@@ -208,5 +208,8 @@ endif
 " line numbers
 set number
 
+" Making without 'Press enter to continue.'
+:ab maker make<CR>
+
 " Quick compiling
-nmap ;; :wa\|make<cr>
+nmap ;; :wa\|maker<cr>
