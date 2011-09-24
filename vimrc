@@ -207,3 +207,6 @@ endif
 
 " line numbers
 set number
+
+" Quick compiling
+nmap ;; :wa\|make<cr>
