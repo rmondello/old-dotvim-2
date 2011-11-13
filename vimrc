@@ -208,8 +208,8 @@ endif
 " line numbers
 set number
 
-" Making without 'Press enter to continue.'
-:ab maker make<CR>
-
 " Quick compiling
-nmap ;; :wa\|maker<cr>
+nmap ;; :wa\|make<cr>
+
+imap jj <Esc>
+command Rtrim :s/\s\+$//
