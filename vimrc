@@ -213,3 +213,6 @@ set number
 
 " Quick compiling
 nmap ;; :wa\|maker<cr>
+
+imap jj <Esc>
+command Rtrim :s/\s\+$//
