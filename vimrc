@@ -209,10 +209,20 @@ endif
 set number
 
 " Making without 'Press enter to continue.'
-:ab maker make<CR>
+:ab maker make<CR><CR>
 
 " Quick compiling
 nmap ;; :wa\|maker<cr>
 
 imap jj <Esc>
 command Rtrim :s/\s\+$//
+
+" Map double-tap Esc to clear search highlights
+nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
+
+set pastetoggle=<F2>
+map - :NERDTreeToggle<CR>
+
+" write files you opened without the necessary permissions with :w!!
+cmap w!! %!sudo tee > /dev/null %
+
