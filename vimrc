@@ -215,7 +215,7 @@ set number
 nmap ;; :wa\|maker<cr>
 
 imap jj <Esc>
-command Rtrim :s/\s\+$//
+command Rtrim :%s/\s*//g
 
 " Map double-tap Esc to clear search highlights
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
