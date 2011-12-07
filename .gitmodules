@@ -106,3 +106,9 @@
 [submodule "bundle/SunburstVIM"]
 	path = bundle/SunburstVIM
 	url = git://github.com/tangphillip/SunburstVIM.git
+[submodule "bundle/javaScriptLint.vim"]
+	path = bundle/javaScriptLint.vim
+	url = git://github.com/joestelmach/javaScriptLint.vim.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
