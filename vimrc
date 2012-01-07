@@ -223,3 +223,4 @@ map - :NERDTreeToggle<CR>
 " write files you opened without the necessary permissions with :w!!
 cmap w!! %!sudo tee > /dev/null %
 
+autocmd BufNewFile,BufRead *.scss             set ft=scss

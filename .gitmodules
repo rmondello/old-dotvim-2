@@ -111,7 +111,10 @@
 	url = git://github.com/joestelmach/javaScriptLint.vim.git
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
+	url = git://github.com/scrooloose/syntastic.git
 [submodule "bundle/vim-haml"]
 	path = bundle/vim-haml
 	url = git://github.com/tpope/vim-haml.git
+[submodule "bundle/togglemouse"]
+	path = bundle/togglemouse
+	url = git://github.com/nvie/vim-togglemouse.git
