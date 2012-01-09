@@ -118,3 +118,6 @@
 [submodule "bundle/togglemouse"]
 	path = bundle/togglemouse
 	url = git://github.com/nvie/vim-togglemouse.git
+[submodule "bundle/greplace"]
+	path = bundle/greplace
+	url = git://github.com/vim-scripts/greplace.vim.git

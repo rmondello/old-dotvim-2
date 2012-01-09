@@ -202,7 +202,6 @@ else "Had to do this in order to continue to allow syntax highlighting on non-
     "match OverLength /\%81v.\+/
 endif
 
-" line numbers
 set number
 
 " Making without 'Press enter to continue.'
@@ -224,3 +223,21 @@ map - :NERDTreeToggle<CR>
 cmap w!! %!sudo tee > /dev/null %
 
 autocmd BufNewFile,BufRead *.scss             set ft=scss
+
+vnoremap <silent> * :call VisualSearch('f')<CR>
+vnoremap <silent> # :call VisualSearch('b')<CR>
+
+" When you press gv you vimgrep after the selected text
+vnoremap <silent> gv :call VisualSearch('gv')<CR>
+map <leader>g :vimgrep // **<left><left><left><left>
+
+map <leader>n :cn<cr>
+map <leader>p :cp<cr>
+
+noremap <leader>t :CommandT<cr>
+
+" Bash like keys for the command line
+cnoremap <C-A> <Home>
+cnoremap <C-E> <End>
+cnoremap <C-K> <C-U>
+
