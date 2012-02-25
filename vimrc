@@ -241,3 +241,6 @@ cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
 cnoremap <C-K> <C-U>
 
+" Smart paste
+imap <Leader>v <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
+
