@@ -19,6 +19,12 @@ let mapleader=","
 " screw vi
 set nocompatible
 
+" Add the g flag to search/replace by default
+set gdefault
+
+" Show the filename in the window titlebar
+set title
+
 set number
 set ruler
 syntax on
@@ -58,10 +64,13 @@ map <Leader>n :NERDTreeToggle<CR>
 " Command-T configuration
 let g:CommandTMaxHeight=20
 
-" Remember last location in file
 if has("autocmd")
+  " Remember last location in file
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal g'\"" | endif
+  
+  " Treat .json files as .js
+  autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 endif
 
 function s:setupWrapping()
