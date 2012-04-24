@@ -220,7 +220,12 @@ set number
 nmap ;; :wa\|maker<cr>
 
 imap jj <Esc>
-command Rtrim :%s/\s*$//g
+
+command Rtrim call <SID>RightTrim()
+function <SID>RightTrim()
+  :% s/\s*$//g
+  nohl
+endfunction
 
 " Map double-tap Esc to clear search highlights
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
